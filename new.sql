@@ -1,0 +1,29 @@
+
+DROP TABLE IF EXISTS items;
+
+
+
+
+
+DROP TABLE IF EXISTS accounts;
+
+CREATE TABLE IF NOT EXISTS accounts (
+    user VARCHAR(25) UNIQUE PRIMARY KEY NOT NULL,
+    pass VARCHAR(70) NOT NULL );
+
+
+CREATE TABLE IF NOT EXISTS items (   
+    itemid MEDIUMINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(25) NOT NULL,
+    description VARCHAR(100) NOT NULL,
+    image VARCHAR(40000) NOT NULL,
+    dateof DATE NOT NULL,
+    acName VARCHAR(25) NOT NULL,
+    FOREIGN KEY (acName) REFERENCES accounts(user) 
+);
+
+
+
+   
+INSERT INTO accounts(user, pass)
+	VALUES("doej", "$2b$10$gL33obKAFUT5DK3pEbh72OIHztsWBniBBh.PdeKOrF1yr5KFAsdZO");
